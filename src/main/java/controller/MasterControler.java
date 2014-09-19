@@ -20,6 +20,8 @@ public class MasterControler {
         gui=new GUI();
 
 
+
+
     }
 
     private AccountProperties getAccountProps() {
