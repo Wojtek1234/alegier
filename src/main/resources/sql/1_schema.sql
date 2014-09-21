@@ -31,12 +31,12 @@ create table mprice(
   create table item(
   item_id bigint constraint item_id primary key,
   item_account_id bigint not null,
-  item_author_id bigint not null,
   item_category_id bigint not null,
-  item_room_id bigint not null,
+  item_mprice_id bigint not null,
   item_name varchar(200) not null constraint item_name unique,
   item_created timestamp,
   item_modified timestamp
+  item_timetoend timestamp,
   );
 
 alter table item

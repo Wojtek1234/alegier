@@ -10,22 +10,23 @@ import view.LoginDialog;
  */
 public class MasterControler {
     private final GUI gui;
-    public MasterControler(){
 
-        AccountProperties accountProperties=getAccountProps();
+    public MasterControler(){
+        gui=new GUI();
+        AccountProperties accountProperties=getAccountProps( gui);
 
         //TODO tutaj sprawdzic czy istenieje w bazie , jezeli tak to dalej, jezeli nie to zaproponowac anonymusa albo od poczatku
 
 
-        gui=new GUI();
+
 
 
 
 
     }
 
-    private AccountProperties getAccountProps() {
-        final LoginDialog loginDialog=new LoginDialog();
+    private AccountProperties getAccountProps(GUI gui) {
+        final LoginDialog loginDialog=new LoginDialog(gui,"Login service");
         loginDialog.setModal(true);
         return loginDialog.getAccountProps();
     }

@@ -7,6 +7,14 @@
     <groupId>wojtekAlegier</groupId>
     <artifactId>alegier</artifactId>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.2.0.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>
