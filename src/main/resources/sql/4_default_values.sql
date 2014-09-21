@@ -19,16 +19,8 @@ insert into account values(56,'account6');
 insert into account values(57,'account7');
 insert into account values(58,'account8');
 
-insert into mprice values(50,'mprice1');
-insert into mprice values(52,'mprice2');
-insert into mprice values(53,'mprice3');
-insert into mprice values(54,'mprice4');
-insert into mprice values(55,'mprice5');
-insert into mprice values(56,'mprice6');
-insert into mprice values(57,'mprice7');
-insert into mprice values(58,'mprice8');
 
-insert into book values(50,50,50,50,50,'item1');
+insert into item values(50,50,50,50,50,'item1');
 insert into item values(52,52,52,52,52,'item2');
 insert into item values(53,53,53,53,53,'item3');
 insert into item values(54,54,54,54,54,'item4');

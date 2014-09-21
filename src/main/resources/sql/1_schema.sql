@@ -21,22 +21,19 @@ create table account(
   category_modified timestamp
   );
 
-create table mprice(
-  mprice_id bigint constraint mp_id primary key,
-  mprice_name varchar(200) not null constraint mp_name unique,
-  mprice_created timestamp,
-  mprice_modified timestamp
-  );
+
 
   create table item(
   item_id bigint constraint item_id primary key,
   item_account_id bigint not null,
   item_category_id bigint not null,
-  item_mprice_id bigint not null,
+
   item_name varchar(200) not null constraint item_name unique,
   item_created timestamp,
-  item_modified timestamp
+  item_modified timestamp,
   item_timetoend timestamp,
+  item_curprice bigint,
+  item_minprice bigint
   );
 
 alter table item
@@ -51,9 +48,6 @@ alter table item
     add constraint fk_item_category foreign key(item_category_id)
     references category;
 
-alter table item
-    add constraint fk_item_mprice foreign key(item_mprice_id)
-    references room;
 
   
 

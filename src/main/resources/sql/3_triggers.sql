@@ -129,23 +129,3 @@ return new;
 end;
 $mprice_insert_function$ LANGUAGE plpgsql;
 
-create  trigger mprice_INSERT
-before insert on mprice
-for each row execute procedure mprice_insert_function();
-
-create function mprice_update_function() returns trigger AS $mprice_update_function$
-
-begin 
-if NEW.mprice_created is NULL then
-NEW.mprice_created := localtimestamp;
-else
-    NEW.mprice_modified  := localtimestamp;
-  end if; 
-
-return new;
-end;
-$mprice_update_function$ LANGUAGE plpgsql;
-
-create  trigger mprice_update
-before update on mprice
-for each row execute procedure mprice_update_function();

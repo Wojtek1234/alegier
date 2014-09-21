@@ -7,4 +7,3 @@ drop sequence seq_mprice;
 create sequence seq_account;
 create sequence seq_item;
 create sequence seq_category;
-create sequence seq_mprice;

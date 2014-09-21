@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="tablelayout:TableLayout:20020517" type="repository">
+    <properties maven-id="tablelayout:TableLayout:20020517" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/TableLayout-20020517.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
