@@ -1,40 +1,56 @@
 ﻿DROP table account cascade;
 DROP table category cascade;
-DROP table mprice cascade;
 DROP table item cascade;
 
 
 
-create table account(
-  account_id bigint constraint ac_id primary key, 
-  account_name varchar(200) not null constraint ac_name unique,
-  account_password varchar(200) not null constraint ac_password unique,
-  account_created timestamp,
-  account_modified timestamp
+CREATE TABLE account
+(
+  account_name text NOT NULL,
+  account_id bigint NOT NULL,
+  CONSTRAINT au_id PRIMARY KEY (account_id)
+)
+WITH (
+  OIDS=TRUE
+);
+ALTER TABLE account
+  OWNER TO postgres;
+
+CREATE TABLE category
+  (
+    category_id bigint NOT NULL,
+    category_name text NOT NULL,
+    CONSTRAINT cat_id PRIMARY KEY (category_id)
+  )
+  WITH (
+    OIDS=FALSE
   );
+  ALTER TABLE category
+    OWNER TO postgres;
 
+CREATE TABLE item
+(
+  item_account_id bigint,
+  item_id bigint NOT NULL,
+  item_category_id bigint,
+  item_price bigint,
+  item_expired timestamp with time zone,
+  item_picture bytea[],
+  item_name text NOT NULL,
+  CONSTRAINT ite_id PRIMARY KEY (item_id),
+  CONSTRAINT it_ac_id FOREIGN KEY (item_account_id)
+      REFERENCES account (account_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT it_cat_id FOREIGN KEY (item_category_id)
+      REFERENCES category (category_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE item
+  OWNER TO postgres;
 
-  create table category(
-  category_id bigint constraint ca_id primary key, 
-  category_name varchar(200) not null constraint ca_name unique,
-  category_created timestamp,
-  category_modified timestamp
-  );
-
-
-
-  create table item(
-  item_id bigint constraint item_id primary key,
-  item_account_id bigint not null,
-  item_category_id bigint not null,
-
-  item_name varchar(200) not null constraint item_name unique,
-  item_created timestamp,
-  item_modified timestamp,
-  item_timetoend timestamp,
-  item_curprice bigint,
-  item_minprice bigint
-  );
 
 alter table item
     add constraint fk_item_account foreign key(item_account_id)

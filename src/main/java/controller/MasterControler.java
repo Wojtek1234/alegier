@@ -1,7 +1,6 @@
 package controller;
 
 import model.AccountProperties;
-import sun.rmi.runtime.Log;
 import view.GUI;
 import view.LoginDialog;
 
