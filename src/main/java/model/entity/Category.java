@@ -11,7 +11,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table( name = "item" )
+@Table( name = "category" )
 @SequenceGenerator( name = "seq", sequenceName = "seq_item" )
 @AttributeOverrides( { @AttributeOverride( name = "id", column = @Column( name = "category_id" ) )})
 

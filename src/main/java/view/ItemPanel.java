@@ -32,7 +32,7 @@ public abstract class ItemPanel extends JPanel {
 
     private JPanel setupInfoPanel(Item item) {
         JPanel infoPanel=new JPanel(new GridLayout(4,0));
-        ownerLabel=new JLabel(item.getAccount().getAccountNick())  ;
+        ownerLabel=new JLabel(item.getAccount().getName())  ;
         infoPanel.add(ownerLabel);
         timeLastLabel=new JLabel(item.getExperiedDate().toString()) ;
         infoPanel.add(timeLastLabel);

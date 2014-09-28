@@ -1,7 +1,6 @@
 package model.dao;
 
 import model.dao.base.BaseDao;
-import model.entity.Account;
 import model.entity.Category;
 
 /**

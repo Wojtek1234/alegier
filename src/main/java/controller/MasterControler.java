@@ -1,8 +1,15 @@
 package controller;
 
 import model.AccountProperties;
+import model.entity.Item;
+import model.services.AlegierServiceBean;
+import model.services.ItemService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import view.GUI;
 import view.LoginDialog;
+
+import java.util.List;
 
 /**
  * Created by Wojtek on 2014-09-19.
@@ -12,12 +19,16 @@ public class MasterControler {
 
     public MasterControler(){
         gui=new GUI();
-        AccountProperties accountProperties=getAccountProps( gui);
+        ApplicationContext context = new ClassPathXmlApplicationContext( "beanConfiguration.xml" );
+        AlegierServiceBean alegierServiceBean = (AlegierServiceBean)context.getBean( "alegierServiceBean" );
 
-        //TODO tutaj sprawdzic czy istenieje w bazie , jezeli tak to dalej, jezeli nie to zaproponowac anonymusa albo od poczatku
+        final ItemService itemService= alegierServiceBean.getBookService();
+        List lista=itemService.getAll();
 
-
-
+        for(Item it:lista){
+           Item ite=(Item)it;
+           System.out.println(ite.getName());
+        }
 
 
 
