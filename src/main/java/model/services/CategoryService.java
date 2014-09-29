@@ -25,7 +25,7 @@ public class CategoryService extends BaseService<Category,CategoryDao> {
 
     @Override
     public Category create(String name) {
-        return (Category) this.categoryDao.save(new Category(name));
+        return  this.categoryDao.save(new Category(name));
     }
     @Inject
     public void setCategoryDao( CategoryDao categoryDao )

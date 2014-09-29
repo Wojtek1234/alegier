@@ -17,11 +17,19 @@ import java.sql.Date;
 @AttributeOverrides( { @AttributeOverride( name = "id", column = @Column( name = "item_id" ) )})
 public class Item extends BaseEntity{
 
+    @ManyToOne( targetEntity = Account.class, cascade = CascadeType.MERGE)
+    @JoinColumn( name = "item_account_id" )
+    private Account account;
+
+    @ManyToOne( targetEntity = Category.class )
+    @JoinColumn( name = "item_category_id" )
+    private Category category;
+
 
     private Date  experiedDate;
-    private  Category category;
+
     private String name;
-    private Account account;
+
 
     private double currentPrice;
     private ImageIcon imageIcon;

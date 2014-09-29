@@ -11,7 +11,7 @@ public class AlegierServiceBean {
     private CategoryService categoryService;
     private AccountService accountService;
 
-    public ItemService getBookService()
+    public ItemService getItemService()
     {
         return this.itemService;
     }

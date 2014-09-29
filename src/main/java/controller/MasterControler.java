@@ -18,16 +18,17 @@ public class MasterControler {
     private final GUI gui;
 
     public MasterControler(){
+
         gui=new GUI();
         ApplicationContext context = new ClassPathXmlApplicationContext( "beanConfiguration.xml" );
         AlegierServiceBean alegierServiceBean = (AlegierServiceBean)context.getBean( "alegierServiceBean" );
 
-        final ItemService itemService= alegierServiceBean.getBookService();
-        List lista=itemService.getAll();
+        final ItemService itemService= alegierServiceBean.getItemService();
+        List<Item> lista=itemService.getAll();
 
         for(Item it:lista){
-           Item ite=(Item)it;
-           System.out.println(ite.getName());
+
+           System.out.println(it  .getName());
         }
 
 

@@ -1,6 +1,5 @@
 package view;
 
-import info.clearthought.layout.TableLayout;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -10,43 +9,45 @@ import java.awt.event.ActionListener;
  */
 public class GUI extends JFrame {
 
-    private final JButton search=new JButton("szukaj");
-    private final JButton viewByCategory=new JButton("Pokaz z danej kategorii");
-    private final JButton myItems=new JButton("pokaz moje rzeczy");
-    private final JButton addNewItem=new JButton("dodaj nowy przedmiot");
-    private JList itemsList;
+    private final JButton search = new JButton("szukaj");
+    private final JButton viewByCategory = new JButton("Pokaz z danej kategorii");
+    private final JButton myItems = new JButton("pokaz moje rzeczy");
+    private final JButton addNewItem = new JButton("dodaj nowy przedmiot");
+    private JList<String> itemsList;
     private JLabel helloLabel;
 
-    private TableLayout tableLayout;
-    public GUI(){
+   // private TableLayout tableLayout;
+
+    public GUI() {
+
 
         setDefaultWindowPropertis();
-        helloLabel=new JLabel("Hi ");
-
-
+        helloLabel = new JLabel("Hi ");
 
 
     }
 
     private void setDefaultWindowPropertis() {
         setVisible(true);
-        setSize(600,400);
+        setSize(600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-    public void createActionForSearch(ActionListener al){
+    public void createActionForSearch(ActionListener al) {
         search.addActionListener(al);
     }
 
-    public void createActionForShowCategory(ActionListener al){
+    public void createActionForShowCategory(ActionListener al) {
         viewByCategory.addActionListener(al);
     }
 
-    public void createActionForMyItems(ActionListener al){
+    public void createActionForMyItems(ActionListener al) {
         myItems.addActionListener(al);
     }
 
-    public void createActionForAddNewItem(ActionListener al){addNewItem.addActionListener(al);}
+    public void createActionForAddNewItem(ActionListener al) {
+        addNewItem.addActionListener(al);
+    }
 
 
 }

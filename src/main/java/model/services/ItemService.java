@@ -4,7 +4,6 @@ import model.dao.ItemDao;
 import model.entity.Account;
 import model.entity.Category;
 import model.entity.Item;
-import model.services.base.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +23,7 @@ public class ItemService {
     @Transactional
     public Item create( String name, Account account,  Category category, Date data,ImageIcon imageIcon)
     {
-        return (Item)itemDao.save( new Item(name, account, category, data ,imageIcon) );
+        return itemDao.save( new Item(name, account, category, data ,imageIcon) );
     }
 
     public List<Item> getAll()

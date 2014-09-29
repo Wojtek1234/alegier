@@ -13,30 +13,25 @@ import javax.inject.Inject;
  */
 
 @Service
-public class AccountService extends BaseService<Account, AccountDao>
-{
+public class AccountService extends BaseService<Account, AccountDao> {
     private AccountDao accountDao;
 
-    public AccountService()
-    {
+    public AccountService() {
     }
 
     @Override
-    protected AccountDao getBaseDao()
-    {
+    protected AccountDao getBaseDao() {
         return this.accountDao;
     }
 
     @Override
     @Transactional
-    public Account create( String name )
-    {
-        return (Account) this.accountDao.save( new Account( name ) );
+    public Account create(String name) {
+        return this.accountDao.save(new Account(name));
     }
 
     @Inject
-    public void setAccountDao( AccountDao accountDao )
-    {
+    public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
 }

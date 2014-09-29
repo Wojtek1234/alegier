@@ -1,6 +1,5 @@
 package view;
 
-import info.clearthought.layout.TableLayout;
 import model.entity.Item;
 
 import javax.swing.*;
